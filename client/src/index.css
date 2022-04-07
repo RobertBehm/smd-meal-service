@@ -100,6 +100,9 @@ th,
 tr {
   text-align: left;
 }
+td {
+  font-size: 14px;
+}
 
 .login {
   background-image: url('./images//bg1.svg');
@@ -165,4 +168,31 @@ h5 {
   margin-left: -0.8rem;
   margin-top: 3.4rem;
   width: 135%;
+}
+
+.item-style {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px;
+  margin: 10px;
+}
+.item-row-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  list-style-type: none ;
+
+}
+.p-style {
+  padding: 0px;
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+.li-style {
+ margin-left: 5px;
+ font-size: 14px;
+}
+span { 
+  font-size: 14px;
 }

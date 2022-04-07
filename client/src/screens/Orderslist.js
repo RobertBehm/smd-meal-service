@@ -26,7 +26,6 @@ export default function Orderslist() {
             <th>Date</th>
             <th>Status</th>
             <th>Items</th>
-            <th>Quantity</th>
           </tr>
         </thead>
 
@@ -39,7 +38,7 @@ export default function Orderslist() {
                   <td>{order.transactionId}</td>
                   <td>{order.email}</td>
                   <td>{order.name}</td>
-                  <td>{order.orderAmount}</td>
+                  <td>${order.orderAmount}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>
                   <td>
                     {order.isDelivered ? (
@@ -55,27 +54,28 @@ export default function Orderslist() {
                       </button>
                     )}
                   </td>
-                  <td>
-                    <ol className="itemNames">
-                      {order.orderItems.map((item, i) => {
-                        return (
-                          <li>
-                            {item.name}
-                            {order.orderItems.length > 1 &&
-                              order.orderItems.length - 1 != i && <hr />}
-                          </li>
-                        );
-                      })}
-                    </ol>
-                  </td>
-                  <td className="itemQuantities">
+                  <td className="item-row-style">
                     {order.orderItems.map((item, i) => {
                       return (
-                        <p>
-                          {item.quantity}
-                          {order.orderItems.length > 1 &&
-                            order.orderItems.length - 1 != i && <hr />}
-                        </p>
+                        <div className="item-style">
+                          <p className="p-style">
+                            {item.quantity}
+                            {order.orderItems.length > 1 &&
+                              order.orderItems.length - 1 != i}
+                          </p>
+                          <span>x</span>
+                          <li className="li-style">
+                            {item.name}
+                            {order.orderItems.length > 1 &&
+                              order.orderItems.length - 1 != i}
+                          </li>
+                          <span>-</span>
+                          <li className="li-style">
+                            {item.size}
+                            {order.orderItems.length > 1 &&
+                              order.orderItems.length - 1 != i}
+                          </li>
+                        </div>
                       );
                     })}
                   </td>
