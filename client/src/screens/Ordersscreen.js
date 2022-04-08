@@ -52,7 +52,7 @@ export default function Ordersscreen() {
                     <p>Street : {order.shippingAddress.street}</p>
                     <p>City : {order.shippingAddress.city}</p>
                     <p>Country : {order.shippingAddress.country}</p>
-                    <p>Pincode : {order.shippingAddress.pincode}</p>
+                    <p>Zipcode : {order.shippingAddress.pincode}</p>
                   </div>
                   <div className="text-left w-100 m-1">
                     <h2 style={{ fontSize: "25px" }}>Order Info</h2>

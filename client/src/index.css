@@ -10,6 +10,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Montserrat', sans-serif !important;
   overflow-x: hidden !important;
+  min-height: 80vh;
 }
 
 code {
@@ -192,6 +193,10 @@ h5 {
 .li-style {
  margin-left: 5px;
  font-size: 14px;
+}
+.checkout-button-container {
+  display: flex;
+  justify-content: flex-end;
 }
 span { 
   font-size: 14px;

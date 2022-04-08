@@ -27,7 +27,7 @@ export default function Meal({ meal }) {
       key={meal._id}
     >
       <div onClick={handleShow}>
-        <h1 style={{ height: "50px"}}>{meal.name}</h1>
+        <h1 style={{ height: "50px" }}>{meal.name}</h1>
         <img
           src={meal.image}
           className="img-fluid"
