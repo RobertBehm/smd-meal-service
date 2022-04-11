@@ -8,6 +8,7 @@ const customerSchema = mongoose.Schema(
     city: { type: String, require },
     state: { type: String, require },
     phone: { type: String, require },
+    foods: [],
   },
   {
     timestamps: true,

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Form, Popover, OverlayTrigger, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomer } from "../actions/customerAction";
-import axios from "axios";
+import Swal from "sweetalert2";
 
-function HoldOrder() {
+function HoldOrder({ handleClose }) {
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;
   var subtotal = cartItems.reduce((x, item) => x + item.price, 0);
@@ -30,10 +30,14 @@ function HoldOrder() {
       city,
       state,
       phone,
+      foods: cartItems,
     };
 
     console.log(customer);
     dispatch(addCustomer(customer));
+    handleClose();
+
+    Swal.fire("Success", "Order Submited", "success");
   }
 
   const popoverRight1 = (

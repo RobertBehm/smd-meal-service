@@ -22,6 +22,8 @@ export default function Customerslist() {
             <th>City</th>
             <th>State</th>
             <th>Phone</th>
+            <th>Items</th>
+            <th>Quantity</th>
           </tr>
         </thead>
 
@@ -36,6 +38,32 @@ export default function Customerslist() {
                   <td> {customer.city} </td>
                   <td> {customer.state} </td>
                   <td> {customer.phone} </td>
+                  <td>
+                    {customer.foods.map((item, i) => {
+                      return (
+                        <>
+                          <div>{item.name}</div>
+                          {customer.foods.length - 1 !== i && (
+                            <div style={{ borderTop: "2px solid #bbb" }} />
+                          )}
+                        </>
+                      );
+                    })}
+                  </td>
+                  <td>
+                    {customer.foods.map((item, i) => {
+                      return (
+                        <>
+                          <div className="d-flex justify-content-center align-items-center">
+                            <div> {item.quantity} </div>
+                          </div>
+                          {customer.foods.length - 1 !== i && (
+                            <div style={{ borderTop: "2px solid #bbb" }} />
+                          )}
+                        </>
+                      );
+                    })}
+                  </td>
                 </tr>
               );
             })}

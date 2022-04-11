@@ -17,7 +17,10 @@ export default function Checkout({ subtotal }) {
 
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    dispatch(emptyCart());
+  };
   const handleShow = () => setShow(true);
 
   function tokenHander(token) {
@@ -61,7 +64,7 @@ export default function Checkout({ subtotal }) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <HoldOrder />
+          <HoldOrder handleClose={handleClose} />
         </Modal.Body>
         <Modal.Footer class="d-flex justify-content-between align-items-end">
           <div className="ml-3 mb-3 mt-5">

@@ -22,6 +22,7 @@ router.post("/addcustomer", async (req, res) => {
       city: customer.city,
       state: customer.state,
       phone: customer.phone,
+      foods: customer.foods,
     });
     await newcustomer.save();
     res.send("New Customer Added Successfully");
