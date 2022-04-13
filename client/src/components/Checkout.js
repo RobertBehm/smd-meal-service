@@ -46,7 +46,7 @@ export default function Checkout({ subtotal }) {
           billingAddress
           token={tokenHander}
           currency="USD"
-          stripeKey="pk_test_51KOlUPGRMoSZxLCTj1U2YkhCvvmivvhfFnbg37Lx2Sy76C8nQkMQXnXO16Zi8C4PJphmspmrIAK1CpeYrE9TqouV00FG4OQNgo"
+          stripeKey={process.env.STRIPE_PK}
         >
           <button className="btn ml-3">Pay With Card</button>
         </StripeCheckout>
