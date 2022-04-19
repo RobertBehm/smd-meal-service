@@ -1,23 +1,23 @@
 export const ViewedCart = () => {
-  fbq("track", "ViewedCart");
+  window.fbq("track", "ViewedCart");
 };
 
 export const InitiatedStripeCheckout = () => {
-  fbq("track", "InitiatedStripeCheckout");
+  window.fbq("track", "InitiatedStripeCheckout");
 };
 
 export const ClickedCashApp = () => {
-  fbq("track", "ClickedCashApp");
+  window.fbq("track", "ClickedCashApp");
 };
 
 export const ClickedVenmo = () => {
-  fbq("track", "ClickedVenmo");
+  window.fbq("track", "ClickedVenmo");
 };
 
 export const ClickedPaymentOptions = () => {
-  fbq("track", "ClickedPaymentOptions");
+  window.fbq("track", "ClickedPaymentOptions");
 };
 
 export const SubmittedOrderForm = () => {
-  fbq("track", "SubmittedOrderForm");
+  window.fbq("track", "SubmittedOrderForm");
 };
