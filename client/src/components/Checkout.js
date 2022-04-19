@@ -23,10 +23,6 @@ export default function Checkout({ subtotal }) {
     InitiatedStripeCheckout();
   };
 
-  const trackCashPayment = () => {
-    ClickedPaymentOptions();
-  };
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => {
@@ -43,7 +39,7 @@ export default function Checkout({ subtotal }) {
   return (
     <div className="checkout-button-container">
       <div>
-        <button className="btn" onClick={[handleShow, trackCashPayment]}>
+        <button className="btn" onClick={handleShow}>
           Payment Options
         </button>
       </div>

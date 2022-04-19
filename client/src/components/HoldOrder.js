@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Popover, OverlayTrigger, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomer } from "../actions/customerAction";
 import Swal from "sweetalert2";
-import { SubmittedOrderForm } from "../utils/facebook/facebookPixelEvent";
+import {
+  SubmittedOrderForm,
+  ClickedPaymentOptions,
+} from "../utils/facebook/facebookPixelEvent";
 
 function HoldOrder({ handleClose }) {
+  useEffect(() => {
+    ClickedPaymentOptions();
+  }, []);
+
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;
   var subtotal = cartItems.reduce((x, item) => x + item.price, 0);
-
-  const trackCashOrders = () => {
-    SubmittedOrderForm();
-  };
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -41,6 +44,7 @@ function HoldOrder({ handleClose }) {
 
     console.log(customer);
     dispatch(addCustomer(customer));
+    SubmittedOrderForm();
     handleClose();
 
     Swal.fire("Success", "Order Submited", "success");
@@ -149,7 +153,7 @@ function HoldOrder({ handleClose }) {
         <button
           className="btn"
           type="submit"
-          onClick={[formHandler, SubmittedOrderForm]}
+          onClick={formHandler}
           style={{ width: "300px", marginTop: "15px" }}
         >
           Submit Order
