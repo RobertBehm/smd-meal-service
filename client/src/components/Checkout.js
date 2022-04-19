@@ -7,13 +7,25 @@ import Error from "../components/Error";
 import Loading from "../components/Loading";
 import Success from "../components/Success";
 
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import HoldOrder from "./HoldOrder";
+import {
+  InitiatedStripeCheckout,
+  ClickedPaymentOptions,
+} from "../utils/facebook/facebookPixelEvent";
 
 export default function Checkout({ subtotal }) {
   const orderstate = useSelector((state) => state.placeOrderReducer);
   const { loading, error, success } = orderstate;
   const dispatch = useDispatch();
+
+  const trackCardPayment = () => {
+    InitiatedStripeCheckout();
+  };
+
+  const trackCashPayment = () => {
+    ClickedPaymentOptions();
+  };
 
   const [show, setShow] = useState(false);
 
@@ -31,7 +43,7 @@ export default function Checkout({ subtotal }) {
   return (
     <div className="checkout-button-container">
       <div>
-        <button className="btn" onClick={handleShow}>
+        <button className="btn" onClick={[handleShow, trackCashPayment]}>
           Payment Options
         </button>
       </div>
@@ -48,7 +60,9 @@ export default function Checkout({ subtotal }) {
           currency="USD"
           stripeKey={process.env.REACT_APP_STRIPE_PK}
         >
-          <button className="btn ml-3">Pay With Card</button>
+          <button className="btn ml-3" onClick={trackCardPayment}>
+            Pay With Card
+          </button>
         </StripeCheckout>
       </div>
       <Modal show={show} onHide={handleClose}>

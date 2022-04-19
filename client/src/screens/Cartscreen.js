@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../actions/cartActions";
 import { deleteFromCart } from "../actions/cartActions";
 import Checkout from "../components/Checkout";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ViewedCart } from "../utils/facebook/facebookPixelEvent";
+
 export default function Cartscreen() {
+  useEffect(() => {
+    ViewedCart();
+  }, []);
+
   AOS.init();
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;
@@ -25,7 +31,8 @@ export default function Cartscreen() {
                     {item.name} [{item.size}]
                   </h5>
                   <h5>
-                    Price :  {item.quantity} * {item.prices[0][item.size]} = ${item.price}
+                    Price : {item.quantity} * {item.prices[0][item.size]} = $
+                    {item.price}
                   </h5>
                   <h5 style={{ display: "inline" }}>Quantity : </h5>
                   <i
@@ -49,9 +56,9 @@ export default function Cartscreen() {
                   <img
                     src={item.image}
                     style={{ height: "80px", height: "80px" }}
-                  /> 
+                  />
                 </div>
-                
+
                 <div className="m-1 w-100">
                   <i
                     className="fa fa-trash mt-5"
@@ -60,9 +67,8 @@ export default function Cartscreen() {
                       dispatch(deleteFromCart(item));
                     }}
                   ></i>
-                </div> 
+                </div>
               </div>
-              
             );
           })}
         </div>
