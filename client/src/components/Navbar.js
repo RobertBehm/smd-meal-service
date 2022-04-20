@@ -10,6 +10,7 @@ export default function Navbar() {
   const dispatch = useDispatch();
 
   console.log(cartstate);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg shadow-lg p-3 bg-white rounded">
@@ -26,7 +27,7 @@ export default function Navbar() {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon">
-            <i style={{ color: "black" }} className="fas fa-bars"></i>
+            <i style={{ color: "#0554fe" }} className="fas fa-bars"></i>
           </span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
@@ -81,14 +82,24 @@ export default function Navbar() {
                 </a>
               </li>
             )}
-
+            {/*
             <li className="nav-item">
               <a className="nav-link" href="/cart">
                 Cart {cartstate.cartItems.length}
+                <i className="fas fa-shopping-cart">
+                  <span className="p-1 pb-2">{cartstate.cartItems.length}</span>
+            </i> 
               </a>
             </li>
+            */}
           </ul>
         </div>
+
+        <a href="/cart" className="">
+          <i className="fas fa-shopping-cart">
+            <span className="p-1 pb-2">{cartstate.cartItems.length}</span>
+          </i>
+        </a>
       </nav>
     </div>
   );
