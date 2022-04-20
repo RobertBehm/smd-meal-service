@@ -1,0 +1,89 @@
+const Footer = () => {
+  return (
+    <Wrapper class="footer">
+      <ul className="nav">
+        <li className="nav-item">
+          <h4>Store Location</h4>
+          <ul className="">
+            <li className="nav-link">1478 Atwood Ave</li>
+            <li className="nav-link">Johnston, RI 02919</li>
+          </ul>
+        </li>
+        <li className="nav-link">
+          <h4>Store Hours</h4>
+          <ul className="">
+            <li className="nav-link">
+              Monday-Friday: <br />
+              11AM-8PM
+            </li>
+            <li className="nav-link">
+              Saturday:
+              <br />
+              11AM-5PM
+            </li>
+            <li className="nav-link">Sunday: 11AM-3PM</li>
+          </ul>
+        </li>
+        <li className="nav-link">
+          <h4>Contact us</h4>
+          <ul className="nav">
+            <li className="nav-link">
+              <a href="tel:(401) 632-9326" className="">
+                401-632-9326
+              </a>
+            </li>
+            <li className="nav-link">
+              <a href="mailto:startmydiet@gmail.com" className="contact-info">
+                startmydiet@gmail.com
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p className="copyright">&copy; Copyright 2022 by Start My Diet.</p>
+    </Wrapper>
+  );
+};
+export default Footer;
+
+const Wrapper = styled.footer`
+  background-color: ${colors.primary};
+  grid-column: full-start / full-end;
+  padding: 4rem;
+
+  .nav {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 2rem;
+    align-items: center;
+
+    .nav-link {
+      font-size: 1.4rem;
+      color: #fff;
+      text-decoration: none;
+      font-family: $font-display;
+      //text-transform: uppercase;
+      text-align: center;
+      padding: 1.5rem;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .nav_link:hover,
+    .nav_link:active {
+      background-color: rgba(#fff, 0.05);
+      transform: translateY(-3px);
+    }
+  }
+
+  .copyright {
+    font-size: 1.4rem;
+    color: $color-grey-light-2;
+    margin-top: 6rem;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 70%;
+  }
+`;

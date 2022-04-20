@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../actions/userActions";
-import Logo from "../images/logo.png"
+import Logo from "../images/my-meals-v3.png";
 
 export default function Navbar() {
   const cartstate = useSelector((state) => state.cartReducer);
@@ -9,12 +9,12 @@ export default function Navbar() {
   const { currentUser } = userstate;
   const dispatch = useDispatch();
 
-  console.log(cartstate)
+  console.log(cartstate);
   return (
     <div>
-      <nav className="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-white rounded">
+      <nav className="navbar navbar-expand-lg shadow-lg p-3 bg-white rounded">
         <a className="navbar-brand" href="/">
-          <img src={Logo} alt="brand logo" style={{height: '80px'}} />
+          <img src={Logo} alt="brand logo" style={{ height: "100px" }} />
         </a>
         <button
           className="navbar-toggler"
@@ -48,7 +48,11 @@ export default function Navbar() {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton"
                 >
-                  <a className="dropdown-item" href="/orders" style={{ color: "#013BB9" }}>
+                  <a
+                    className="dropdown-item"
+                    href="/orders"
+                    style={{ color: "#013BB9" }}
+                  >
                     Orders
                   </a>
                   <a

@@ -5,6 +5,7 @@ import "bootstrap";
 import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 //import Footer from "./components/Footer";
+//import Footer from "./components/Footer";
 import Homescreen from "./screens/Homescreen";
 import Cartscreen from "./screens/Cartscreen";
 import Registerscreen from "./screens/Registerscreen";
