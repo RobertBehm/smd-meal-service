@@ -5,7 +5,9 @@ const Hero = () => {
   return (
     <Wrapper>
       <h4 className="hero-header">We Deliver</h4>
-      <span className="hero-subheader">within 60 miles</span>
+      <span className="hero-subheader">
+        within 30 miles for a 12.00 delivery fee
+      </span>
       <div className="hero-body-container">
         <p className="hero-body">Spend $100, save 5%</p>
         <p className="hero-body">Spend $200, save 10%.</p>
