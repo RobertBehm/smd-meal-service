@@ -6,6 +6,7 @@ import Filter from "../components/Filter";
 import Loading from "../components/Loading";
 import Meal from "../components/Meal";
 import Footer from "../components/Footer";
+import Hero from "../components/Hero";
 
 export default function Homescreen() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function Homescreen() {
   return (
     <>
       <div>
+        <Hero />
         <Filter />
         <div className="row justify-content-center">
           {loading ? (

@@ -96,7 +96,7 @@ const Footer = () => {
 
 const Wrapper = styled.section`
   background-color: ${colors.primary};
-  margin-top: 250px;
+  margin-top: 265px;
   position: "absolute";
   bottom: 0;
 
