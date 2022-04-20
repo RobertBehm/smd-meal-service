@@ -95,7 +95,7 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <a href="/cart" className="">
+        <a href="/cart">
           <i className="fas fa-shopping-cart">
             <span className="p-1 pb-2">{cartstate.cartItems.length}</span>
           </i>

@@ -96,9 +96,7 @@ const Footer = () => {
 
 const Wrapper = styled.section`
   background-color: ${colors.primary};
-  margin-top: 265px;
-  position: "absolute";
-  bottom: 0;
+  margin-top: 600px;
 
   .container {
     display: flex;
