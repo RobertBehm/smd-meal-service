@@ -7,7 +7,7 @@ import Loading from "../components/Loading";
 import Meal from "../components/Meal";
 import Footer from "../components/Footer";
 import Hero from "../images/we-deliver-hero.png";
-import MobileHero from "../images/we-deliver-mobile-final.png";
+import MobileHero from "../images/we-deliver-mobile-v1.png";
 import Hidden from "@material-ui/core/Hidden";
 
 export default function Homescreen() {
