@@ -6,9 +6,6 @@ import Filter from "../components/Filter";
 import Loading from "../components/Loading";
 import Meal from "../components/Meal";
 import Footer from "../components/Footer";
-import Hero from "../images/we-deliver-hero.png";
-import MobileHero from "../images/we-deliver-mobile-v1.png";
-import Hidden from "@material-ui/core/Hidden";
 
 export default function Homescreen() {
   const dispatch = useDispatch();
@@ -24,17 +21,6 @@ export default function Homescreen() {
   return (
     <>
       <div>
-        <Hidden mdDown>
-          <div>
-            <img src={Hero} alt="hero image" />
-          </div>
-        </Hidden>
-        <Hidden mdUp>
-          <div>
-            <img src={MobileHero} />
-          </div>
-        </Hidden>
-
         <Filter />
         <div className="row justify-content-center">
           {loading ? (
