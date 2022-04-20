@@ -128,6 +128,35 @@ function HoldOrder({ handleClose }) {
           onChange={(e) => setPhone(e.target.value)}
         />
       </Form.Group>
+      {/*<Form.Group>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="pickup"
+            id="pickup"
+            value="pickup"
+            checked
+          />
+          <label className="form-check-label" for="pickup">
+            Pickup
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="delivery"
+            id="delivery"
+            value="delivery"
+          />
+          <label className="form-check-label" for="delivery">
+            Delivery ( Add $12.00 delivery fee, thanks)
+          </label>
+        </div>
+      </Form.Group>
+  */}
+
       <Form.Group>
         <div className="mb-3">
           <OverlayTrigger
