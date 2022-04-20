@@ -13,10 +13,11 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg shadow-lg p-3 bg-white rounded">
-        <a className="navbar-brand" href="/">
+      <nav className="navbar navbar-expand-lg shadow-lg bg-white rounded">
+        <a className="navbar-brand " href="/">
           <img src={Logo} alt="brand logo" style={{ height: "100px" }} />
         </a>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -33,7 +34,7 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
             {currentUser ? (
-              <div className="dropdown mt-2">
+              <div className="dropdown mr-4">
                 <a
                   style={{ color: "#013BB9" }}
                   className="dropdown-toggle"
@@ -93,13 +94,14 @@ export default function Navbar() {
             </li>
             */}
           </ul>
+          <div>
+            <a href="/cart">
+              <i className="fas fa-shopping-cart">
+                <span className="p-1 pb-2">{cartstate.cartItems.length}</span>
+              </i>
+            </a>
+          </div>
         </div>
-
-        <a href="/cart">
-          <i className="fas fa-shopping-cart">
-            <span className="p-1 pb-2">{cartstate.cartItems.length}</span>
-          </i>
-        </a>
       </nav>
     </div>
   );
