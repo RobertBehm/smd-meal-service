@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../utils/theme";
 import React from "react";
-//import IconButton from "@material-ui/core/IconButton";
-//import Hidden from "@material-ui/core/Hidden";
-
-//import facebook from "../images/facebook.svg";
-//import instagram from "../images/instagram.svg";
 
 const Footer = () => {
   return (
