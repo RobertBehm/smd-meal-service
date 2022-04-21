@@ -32,6 +32,7 @@ export default function Meal({ meal }) {
         <img
           src={meal.image}
           className="img-fluid"
+          loading="lazy"
           style={{ height: "200px", width: "300px" }}
           alt="meals"
         />
@@ -89,7 +90,8 @@ export default function Meal({ meal }) {
           <img
             src={meal.image}
             className="img-fluid"
-            style={{ height: "400px" }}
+            loading="lazy"
+            style={{ height: "400px", width: "500" }}
             alt="meals"
           />
           <p>{meal.description}</p>
