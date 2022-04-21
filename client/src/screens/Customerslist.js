@@ -31,6 +31,12 @@ export default function Customerslist() {
         <tbody>
           {customers &&
             customers.map((customer) => {
+              const total = customer.foods
+                .map((item) => item.price)
+                .reduce(function (previousValue, currentValue) {
+                  return previousValue + currentValue;
+                });
+
               return (
                 <tr>
                   <td> {customer.name} </td>
@@ -65,18 +71,7 @@ export default function Customerslist() {
                       );
                     })}
                   </td>
-                  <td>
-                    {customer.foods.map((item, i) => {
-                      return (
-                        <>
-                          <div>${item.price}</div>
-                          {customer.foods.length - 1 !== i && (
-                            <div style={{ borderTop: "2px solid #bbb" }} />
-                          )}
-                        </>
-                      );
-                    })}
-                  </td>
+                  <td>${total}</td>
                 </tr>
               );
             })}
