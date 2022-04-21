@@ -16,12 +16,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg shadow-lg bg-white rounded">
         <a className="navbar-brand " href="/">
-          <img
-            src={Logo}
-            alt="brand logo"
-            style={{ height: "100px" }}
-            loading="lazy"
-          />
+          <img src={Logo} alt="brand logo" style={{ height: "100px" }} />
         </a>
         <Hidden smDown>
           <button
