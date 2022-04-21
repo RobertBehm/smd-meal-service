@@ -13,11 +13,6 @@ html {
   min-height: 80vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .nav-link {
   color: #808080 !important;
 }
@@ -106,16 +101,10 @@ td {
 }
 
 .login {
-  background-image: url('./images//bg1.svg');
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
   height: 90vh;
 }
 
 .register {
-  background-image: url('./images//bg2.svg');
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
   height: 90vh;
 }
 
