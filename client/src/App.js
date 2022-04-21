@@ -1,31 +1,33 @@
-//import logo from "./logo.svg";
+import { lazy, Suspense } from "react";
 import "./App.css";
-//import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import "bootstrap";
 import { BrowserRouter, Route } from "react-router-dom";
+import Spinner from "./components/Spinner";
+
 import Navbar from "./components/Navbar";
-//import Footer from "./components/Footer";
-//import Footer from "./components/Footer";
-import Homescreen from "./screens/Homescreen";
-import Cartscreen from "./screens/Cartscreen";
-import Registerscreen from "./screens/Registerscreen";
-import Loginscreen from "./screens/Loginscreen";
-import Ordersscreen from "./screens/Ordersscreen";
-import Adminscreen from "./screens/Adminscreen";
+
+const Homescreen = lazy(() => import("./screens/Homescreen"));
+const Cartscreen = lazy(() => import("./screens/Cartscreen"));
+const Registerscreen = lazy(() => import("./screens/Registerscreen"));
+const Loginscreen = lazy(() => import("./screens/Loginscreen"));
+const Ordersscreen = lazy(() => import("./screens/Ordersscreen"));
+const Adminscreen = lazy(() => import("./screens/Adminscreen"));
 
 function App() {
   return (
     <div className="App">
       <Navbar />
 
-      <BrowserRouter>
-        <Route path="/" exact component={Homescreen} />
-        <Route path="/cart" exact component={Cartscreen} />
-        <Route path="/register" exact component={Registerscreen} />
-        <Route path="/login" exact component={Loginscreen} />
-        <Route path="/orders" exact component={Ordersscreen} />
-        <Route path="/admin" component={Adminscreen} />
-      </BrowserRouter>
+      <Suspense fallback={<Spinner />}>
+        <BrowserRouter>
+          <Route path="/" exact component={Homescreen} />
+          <Route path="/cart" exact component={Cartscreen} />
+          <Route path="/register" exact component={Registerscreen} />
+          <Route path="/login" exact component={Loginscreen} />
+          <Route path="/orders" exact component={Ordersscreen} />
+          <Route path="/admin" component={Adminscreen} />
+        </BrowserRouter>
+      </Suspense>
     </div>
   );
 }
