@@ -6,12 +6,12 @@ import Checkout from "../components/Checkout";
 import Footer from "../components/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { ViewedCart } from "../utils/facebook/facebookPixelEvent";
+//import { ViewedCart } from "../utils/facebook/facebookPixelEvent";
 
 export default function Cartscreen() {
-  useEffect(() => {
+  /*useEffect(() => {
     ViewedCart();
-  }, []);
+  }, []); */
 
   AOS.init();
   const cartstate = useSelector((state) => state.cartReducer);
