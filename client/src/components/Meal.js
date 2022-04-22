@@ -3,10 +3,10 @@ import { Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../actions/cartActions";
 import AOS from "aos";
-import "aos/dist/aos.css";
+//import "aos/dist/aos.css";
 
 export default function Meal({ meal }) {
-  AOS.init({});
+  /*AOS.init({});*/
 
   const [quantity, setquantity] = useState(1);
   const [size, setSize] = useState("regular");
