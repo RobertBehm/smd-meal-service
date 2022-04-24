@@ -4,8 +4,6 @@ import { addToCart } from "../actions/cartActions";
 import { deleteFromCart } from "../actions/cartActions";
 import Checkout from "../components/Checkout";
 import Footer from "../components/Footer";
-import AOS from "aos";
-import "aos/dist/aos.css";
 //import { ViewedCart } from "../utils/facebook/facebookPixelEvent";
 
 export default function Cartscreen() {
@@ -13,16 +11,18 @@ export default function Cartscreen() {
     ViewedCart();
   }, []); */
 
-  AOS.init();
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;
-  var subtotal = cartItems.reduce((x, item) => x + item.price, 0);
+  var subtotal = cartItems.reduce(
+    (x, item) => x + item.quantity * item.prices[0][item.size],
+    0
+  );
   const dispatch = useDispatch();
 
   return (
     <>
       <div style={{ height: "100%" }}>
-        <div className="row justify-content-center p-2" data-aos="fade-down">
+        <div className="row justify-content-center p-2">
           <div className="col-md-6">
             <h2 style={{ fontSize: "40px" }}>My Cart</h2>
 
@@ -35,14 +35,21 @@ export default function Cartscreen() {
                     </h5>
                     <h5>
                       Price : {item.quantity} * {item.prices[0][item.size]} = $
-                      {item.price}
+                      {item.quantity * item.prices[0][item.size]}
                     </h5>
                     <h5 style={{ display: "inline" }}>Quantity : </h5>
                     <i
                       className="fa fa-plus"
                       aria-hidden="true"
                       onClick={() => {
-                        dispatch(addToCart(item, item.quantity + 1, item.size));
+                        dispatch(
+                          addToCart(
+                            item,
+                            item.quantity + 1,
+                            item.size,
+                            "ADD_ONE"
+                          )
+                        );
                       }}
                     ></i>
                     <b>{item.quantity}</b>
@@ -50,7 +57,14 @@ export default function Cartscreen() {
                       className="fa fa-minus"
                       aria-hidden="true"
                       onClick={() => {
-                        dispatch(addToCart(item, item.quantity - 1, item.size));
+                        dispatch(
+                          addToCart(
+                            item,
+                            item.quantity - 1,
+                            item.size,
+                            "SUB_ONE"
+                          )
+                        );
                       }}
                     ></i>
                   </div>

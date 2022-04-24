@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../actions/cartActions";
-import AOS from "aos";
-//import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 
 export default function Meal({ meal }) {
-  /*AOS.init({});*/
-
   const [quantity, setquantity] = useState(1);
   const [size, setSize] = useState("regular");
   const [show, setShow] = useState(false);
@@ -18,15 +15,12 @@ export default function Meal({ meal }) {
   const dispatch = useDispatch();
 
   function addtocart() {
-    dispatch(addToCart(meal, quantity, size));
+    dispatch(addToCart(meal, quantity, size, "ADD_ONE_OR_MORE"));
+    Swal.fire("Success", "Added an Item to cart", "success");
   }
 
   return (
-    <div
-      data-aos="zoom-in"
-      className="shadow-lg p-3 mb-5 bg-white rounded"
-      key={meal._id}
-    >
+    <div className="shadow-lg p-3 mb-5 bg-white rounded" key={meal._id}>
       <div onClick={handleShow}>
         <h1 style={{ height: "50px" }}>{meal.name}</h1>
         <img
