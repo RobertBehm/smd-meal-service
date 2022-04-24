@@ -125,8 +125,8 @@ const Wrapper = styled.section`
     justify-content: center;
 
     @media (max-width: 768px) {
-      margin-bottom: 20px;
-      margin-top: 30px;
+      margin-bottom: 10px;
+      margin-top: 40px;
     }
   }
 
