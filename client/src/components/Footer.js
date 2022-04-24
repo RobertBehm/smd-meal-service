@@ -126,7 +126,7 @@ const Wrapper = styled.section`
 
     @media (max-width: 768px) {
       margin-bottom: 20px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
   }
 
