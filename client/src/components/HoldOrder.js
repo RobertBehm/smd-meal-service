@@ -3,15 +3,15 @@ import { Form, Popover, OverlayTrigger, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomer } from "../actions/customerAction";
 import Swal from "sweetalert2";
-/*import {
+import {
   SubmittedOrderForm,
   ClickedPaymentOptions,
-} from "../utils/facebook/facebookPixelEvent"; */
+} from "../utils/facebook/facebookPixelEvent";
 
 function HoldOrder({ handleClose }) {
-  /*useEffect(() => {
+  useEffect(() => {
     ClickedPaymentOptions();
-  }, []); */
+  }, []);
 
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;
@@ -44,7 +44,7 @@ function HoldOrder({ handleClose }) {
 
     console.log(customer);
     dispatch(addCustomer(customer));
-    /*SubmittedOrderForm();*/
+    SubmittedOrderForm();
     handleClose();
 
     Swal.fire("Success", "Order Submited", "success");

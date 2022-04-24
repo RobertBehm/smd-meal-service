@@ -4,12 +4,12 @@ import { addToCart } from "../actions/cartActions";
 import { deleteFromCart } from "../actions/cartActions";
 import Checkout from "../components/Checkout";
 import Footer from "../components/Footer";
-//import { ViewedCart } from "../utils/facebook/facebookPixelEvent";
+import { ViewedCart } from "../utils/facebook/facebookPixelEvent";
 
 export default function Cartscreen() {
-  /*useEffect(() => {
+  useEffect(() => {
     ViewedCart();
-  }, []); */
+  }, []);
 
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;

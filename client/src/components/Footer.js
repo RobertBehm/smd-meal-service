@@ -93,6 +93,10 @@ const Wrapper = styled.section`
   background-color: ${colors.primary};
   margin-top: 600px;
 
+  @media (max-width: 768px) {
+    padding-bottom: 60px;
+  }
+
   .container {
     display: flex;
     //grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
