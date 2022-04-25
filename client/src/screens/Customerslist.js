@@ -24,6 +24,7 @@ export default function Customerslist() {
             <th>Phone</th>
             <th>Items</th>
             <th>Quantity</th>
+            <th>Prices</th>
             <th>Total</th>
           </tr>
         </thead>
@@ -64,6 +65,18 @@ export default function Customerslist() {
                           <div className="d-flex justify-content-center align-items-center">
                             <div> {item.quantity} </div>
                           </div>
+                          {customer.foods.length - 1 !== i && (
+                            <div style={{ borderTop: "2px solid #bbb" }} />
+                          )}
+                        </>
+                      );
+                    })}
+                  </td>
+                  <td>
+                    {customer.foods.map((item, i) => {
+                      return (
+                        <>
+                          <div>{item.price}</div>
                           {customer.foods.length - 1 !== i && (
                             <div style={{ borderTop: "2px solid #bbb" }} />
                           )}
