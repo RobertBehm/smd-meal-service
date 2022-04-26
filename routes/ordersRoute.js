@@ -22,6 +22,7 @@ router.post("/placeorder", async (req, res) => {
         customer: customer.id,
         receipt_email: token.email,
       },
+
       {
         idempotencyKey: uuidv4(),
       }

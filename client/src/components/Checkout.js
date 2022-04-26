@@ -43,10 +43,11 @@ export default function Checkout({ subtotal }) {
       <div>
         {loading && <Loading />}
         {error && <Error error="Something went wrong" />}
-        {success && <Success success="Your Order Placed Successfully" />}
+        {success && <Success success="Order Placed Successfully" />}
 
         <StripeCheckout
           amount={subtotal * 100}
+          description="Big Data Stuff"
           shippingAddress
           billingAddress
           token={tokenHander}
