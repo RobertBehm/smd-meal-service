@@ -47,7 +47,6 @@ export default function Checkout({ subtotal }) {
 
         <StripeCheckout
           amount={subtotal * 100}
-          description="Big Data Stuff"
           shippingAddress
           billingAddress
           token={tokenHander}
