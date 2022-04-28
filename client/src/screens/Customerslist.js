@@ -6,7 +6,7 @@ export default function Customerslist() {
   const dispatch = useDispatch();
 
   const customersstate = useSelector((state) => state.getAllCustomersReducer);
-  const { customers, error, loading } = customersstate;
+  const { customers } = customersstate;
   useEffect(() => {
     dispatch(getAllCustomers());
   }, []);
@@ -23,8 +23,8 @@ export default function Customerslist() {
             <th>State</th>
             <th>Phone</th>
             <th>Items</th>
-            <th>Quantity</th>
-            <th>Prices</th>
+            {/*<th>Quantity</th>*/}
+            {/*<th>Prices</th>*/}
             <th>Total</th>
           </tr>
         </thead>
@@ -51,6 +51,9 @@ export default function Customerslist() {
                       return (
                         <>
                           <div>{item.name}</div>
+                          <div>Size: {item.size}</div>
+                          <div>Quantity: {item.quantity}</div>
+                          <div>Price: ${item.price}</div>
                           {customer.foods.length - 1 !== i && (
                             <div style={{ borderTop: "2px solid #bbb" }} />
                           )}
@@ -58,7 +61,7 @@ export default function Customerslist() {
                       );
                     })}
                   </td>
-                  <td>
+                  {/*<td>
                     {customer.foods.map((item, i) => {
                       return (
                         <>
@@ -71,8 +74,8 @@ export default function Customerslist() {
                         </>
                       );
                     })}
-                  </td>
-                  <td>
+                  </td> */}
+                  {/*<td>
                     {customer.foods.map((item, i) => {
                       return (
                         <>
@@ -83,7 +86,8 @@ export default function Customerslist() {
                         </>
                       );
                     })}
-                  </td>
+                  </td> 
+                  */}
                   <td>${total}</td>
                 </tr>
               );

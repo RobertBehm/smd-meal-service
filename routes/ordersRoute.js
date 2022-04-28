@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 const stripe = require("stripe")(
-  "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"
+  "sk_test_51KOlUPGRMoSZxLCTmrvBM8TR0SuEQTRYxoI5xKfFlWxYrPmEsoIwtrzAc90j0m9pATJmHYEQnYc4bylTk9pStXlg00ZvpIRtoc"
 );
 const Order = require("../models/orderModel");
 

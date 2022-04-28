@@ -23,7 +23,6 @@ export default function Orderslist() {
             <th>Email</th>
             <th>Name</th>
             <th>Amount</th>
-            <th>Date</th>
             <th>Status</th>
             <th>Items</th>
           </tr>
@@ -39,7 +38,6 @@ export default function Orderslist() {
                   <td>{order.email}</td>
                   <td>{order.name}</td>
                   <td>${order.orderAmount}</td>
-                  <td>{order.createdAt.substring(0, 10)}</td>
                   <td>
                     {order.isDelivered ? (
                       <h1>Delivered</h1>
