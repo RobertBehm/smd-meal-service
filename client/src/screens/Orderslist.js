@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deliverOrder, getAllOrders } from "../actions/orderActions";
 import Error from "../components/Error";
-import Filter from "../components/Filter";
 import Loading from "../components/Loading";
 export default function Orderslist() {
   const dispatch = useDispatch();
@@ -19,12 +18,11 @@ export default function Orderslist() {
       <table className="table table-striped table-bordered table-responsive-sm">
         <thead>
           <tr>
-            <th>Transaction Id</th>
-            <th>Email</th>
             <th>Name</th>
-            <th>Amount</th>
-            <th>Status</th>
+            <th>Email</th>
+            <th>Address</th>
             <th>Items</th>
+            <th>Amount</th>
           </tr>
         </thead>
 
@@ -34,49 +32,45 @@ export default function Orderslist() {
               console.log(order.orderItems, "aa");
               return (
                 <tr>
-                  <td>{order.transactionId}</td>
-                  <td>{order.email}</td>
                   <td>{order.name}</td>
-                  <td>${order.orderAmount}</td>
+                  <td>{order.email}</td>
                   <td>
-                    {order.isDelivered ? (
-                      <h1>Delivered</h1>
-                    ) : (
-                      <button
-                        className="btn"
-                        onClick={() => {
-                          dispatch(deliverOrder(order._id));
-                        }}
-                      >
-                        Deliver
-                      </button>
-                    )}
+                    <p>Street : {order.shippingAddress.street}</p>
+                    <p>City : {order.shippingAddress.city}</p>
                   </td>
                   <td className="item-row-style">
                     {order.orderItems.map((item, i) => {
                       return (
                         <div className="item-style">
-                          <p className="p-style">
-                            {item.quantity}
-                            {order.orderItems.length > 1 &&
+                          <div>
+                            <p>{item.name}</p>
+                            {/*{order.orderItems.length > 1 &&
                               order.orderItems.length - 1 != i}
-                          </p>
-                          <span>x</span>
-                          <li className="li-style">
-                            {item.name}
-                            {order.orderItems.length > 1 &&
+                            */}
+                          </div>
+                          <div>
+                            <p>Size: {item.size}</p>
+                            {/*{order.orderItems.length > 1 &&
                               order.orderItems.length - 1 != i}
-                          </li>
-                          <span>-</span>
-                          <li className="li-style">
-                            {item.size}
-                            {order.orderItems.length > 1 &&
+                            */}
+                          </div>
+                          <div>
+                            <p>Quantity: {item.quantity}</p>
+                            {/*{order.orderItems.length > 1 &&
                               order.orderItems.length - 1 != i}
-                          </li>
+                            */}
+                          </div>
+                          <div>
+                            <p>Price: ${item.price}</p>
+                            {/*{order.orderItems.length > 1 &&
+                              order.orderItems.length - 1 != i}
+                            */}
+                          </div>
                         </div>
                       );
                     })}
                   </td>
+                  <td>${order.orderAmount}</td>
                 </tr>
               );
             })}
