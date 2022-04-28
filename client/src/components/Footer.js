@@ -21,9 +21,8 @@ const Footer = () => {
         <div className="col">
           <h4>Store Location</h4>
           <ul className="list-menu">
-            <li className="list-item">1478 Atwood Ave</li>
-            <li className="list-item">Johnston RI 02909</li>
-            <li className="list-item">Suite 210</li>
+            <li className="list-item">1380 Hartford Ave</li>
+            <li className="list-item">Johnston RI 02919</li>
           </ul>
         </div>
 

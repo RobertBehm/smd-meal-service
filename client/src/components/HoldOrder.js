@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Form, Popover, OverlayTrigger, Button } from "react-bootstrap";
+
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomer } from "../actions/customerAction";
 import Swal from "sweetalert2";
@@ -27,7 +28,6 @@ function HoldOrder({ handleClose }) {
   const dispatch = useDispatch();
 
   const addcustomerstate = useSelector((state) => state.addMealReducer);
-  const { success, error, loading } = addcustomerstate;
 
   function formHandler(e) {
     e.preventDefault();
@@ -128,34 +128,7 @@ function HoldOrder({ handleClose }) {
           onChange={(e) => setPhone(e.target.value)}
         />
       </Form.Group>
-      {/*<Form.Group>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            name="pickup"
-            id="pickup"
-            value="pickup"
-            checked
-          />
-          <label className="form-check-label" for="pickup">
-            Pickup
-          </label>
-        </div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            name="delivery"
-            id="delivery"
-            value="delivery"
-          />
-          <label className="form-check-label" for="delivery">
-            Delivery ( Add $12.00 delivery fee, thanks)
-          </label>
-        </div>
-      </Form.Group>
-  */}
+      <Form.Group></Form.Group>
 
       <Form.Group>
         <div className="mb-3">
@@ -178,7 +151,7 @@ function HoldOrder({ handleClose }) {
         </div>
       </Form.Group>
       <div className="d-flex justify-content-center align-items-center flex-column">
-        <p> Subtotal: ${subtotal} </p>
+        <h3 style={{ color: "#003C55" }}> Subtotal: ${subtotal} </h3>
         <button
           className="btn"
           type="submit"

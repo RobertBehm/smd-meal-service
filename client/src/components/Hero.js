@@ -13,9 +13,8 @@ const Hero = () => {
         <p className="hero-body">Spend $200, save 10%.</p>
       </div>
       <div className="store-info-container">
-        <p className="hero-store-info">1478 Atwood Ave</p>
+        <p className="hero-store-info">1380 Hartford Ave</p>
         <p className="hero-store-info">Johnston, RI</p>
-        <p className="hero-store-info">Ste. 210</p>
         <p className="hero-store-info">401-632-9326</p>
       </div>
     </Wrapper>
