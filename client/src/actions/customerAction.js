@@ -24,3 +24,14 @@ export const addCustomer = (customer) => async (dispatch) => {
     dispatch({ type: "ADD_CUSTOMER_FAILED", payload: error });
   }
 };
+
+export const deleteCustomer = (customerid) => async (dispatch) => {
+  try {
+    await axios.post("/api/users/delete-customer", { customerid });
+    alert("Customer deleted successfully");
+    window.location.reload();
+  } catch (error) {
+    alert("Something went wrong");
+    console.log(error);
+  }
+};

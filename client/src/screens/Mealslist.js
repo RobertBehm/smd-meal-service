@@ -5,6 +5,7 @@ import { deleteMeal, getAllMeals } from "../actions/mealActions";
 import Error from "../components/Error";
 import Filter from "../components/Filter";
 import Loading from "../components/Loading";
+
 export default function Mealslist() {
   const dispatch = useDispatch();
 

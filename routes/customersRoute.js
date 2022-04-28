@@ -22,10 +22,22 @@ router.post("/addcustomer", async (req, res) => {
       city: customer.city,
       state: customer.state,
       phone: customer.phone,
+      delivery: customer.delivery,
       foods: customer.foods,
     });
     await newcustomer.save();
     res.send("New Customer Added Successfully");
+  } catch (error) {
+    return res.status(400).json({ message: error });
+  }
+});
+
+router.post("/delete-customer", async (req, res) => {
+  const customerid = req.body.userid;
+
+  try {
+    await User.findOneAndDelete({ _id: customerid });
+    res.send("Customer Deleted Successfully");
   } catch (error) {
     return res.status(400).json({ message: error });
   }

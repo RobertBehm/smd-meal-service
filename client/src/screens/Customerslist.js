@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCustomers } from "../actions/customerAction";
+import { getAllCustomers, deleteCustomer } from "../actions/customerAction";
 
 export default function Customerslist() {
   const dispatch = useDispatch();
 
   const customersstate = useSelector((state) => state.getAllCustomersReducer);
   const { customers } = customersstate;
+
   useEffect(() => {
     dispatch(getAllCustomers());
   }, []);
@@ -23,9 +24,8 @@ export default function Customerslist() {
             <th>State</th>
             <th>Phone</th>
             <th>Items</th>
-            {/*<th>Quantity</th>*/}
-            {/*<th>Prices</th>*/}
             <th>Total</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -39,17 +39,19 @@ export default function Customerslist() {
                 });
 
               return (
-                <tr>
+                <tr key={customer.id}>
                   <td> {customer.name} </td>
                   <td> {customer.email} </td>
                   <td> {customer.address} </td>
                   <td> {customer.city} </td>
                   <td> {customer.state} </td>
                   <td> {customer.phone} </td>
+                  <td> {customer.delivery}</td>
+
                   <td>
                     {customer.foods.map((item, i) => {
                       return (
-                        <>
+                        <div key={i}>
                           <div>{item.name}</div>
                           <div>Size: {item.size}</div>
                           <div>Quantity: {item.quantity}</div>
@@ -57,7 +59,7 @@ export default function Customerslist() {
                           {customer.foods.length - 1 !== i && (
                             <div style={{ borderTop: "2px solid #bbb" }} />
                           )}
-                        </>
+                        </div>
                       );
                     })}
                   </td>
@@ -89,6 +91,14 @@ export default function Customerslist() {
                   </td> 
                   */}
                   <td>${total}</td>
+                  <td>
+                    <i
+                      className="fa fa-trash"
+                      onClick={() => {
+                        dispatch(deleteCustomer(customer._id));
+                      }}
+                    ></i>
+                  </td>
                 </tr>
               );
             })}

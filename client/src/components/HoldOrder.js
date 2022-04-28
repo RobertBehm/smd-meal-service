@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Form, Popover, OverlayTrigger, Button } from "react-bootstrap";
-
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomer } from "../actions/customerAction";
 import Swal from "sweetalert2";
@@ -25,6 +26,12 @@ function HoldOrder({ handleClose }) {
   const [state, setState] = useState("");
   const [phone, setPhone] = useState("");
 
+  const [checked, setChecked] = useState("true");
+
+  const isDelivery = (event) => {
+    setChecked(event.target.checked);
+  };
+
   const dispatch = useDispatch();
 
   const addcustomerstate = useSelector((state) => state.addMealReducer);
@@ -39,6 +46,7 @@ function HoldOrder({ handleClose }) {
       city,
       state,
       phone,
+      delivery: checked,
       foods: cartItems,
     };
 
@@ -128,7 +136,18 @@ function HoldOrder({ handleClose }) {
           onChange={(e) => setPhone(e.target.value)}
         />
       </Form.Group>
-      <Form.Group></Form.Group>
+      <Form.Group>
+        <FormControlLabel
+          control={
+            <Checkbox
+              style={{ color: "#0554fe" }}
+              checked={checked}
+              onChange={isDelivery}
+            />
+          }
+          label="Delivery + $12.00"
+        />
+      </Form.Group>
 
       <Form.Group>
         <div className="mb-3">
