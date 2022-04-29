@@ -26,7 +26,7 @@ function HoldOrder({ handleClose }) {
   const [state, setState] = useState("");
   const [phone, setPhone] = useState("");
 
-  const [checked, setChecked] = useState("true");
+  const [checked, setChecked] = useState(false);
 
   const isDelivery = (event) => {
     setChecked(event.target.checked);
@@ -46,8 +46,8 @@ function HoldOrder({ handleClose }) {
       city,
       state,
       phone,
-      deliveryCharges: checked,
       foods: cartItems,
+      deliveryCharges: checked,
     };
 
     console.log(customer);
@@ -170,7 +170,10 @@ function HoldOrder({ handleClose }) {
         </div>
       </Form.Group>
       <div className="d-flex justify-content-center align-items-center flex-column">
-        <h3 style={{ color: "#003C55" }}> Subtotal: ${subtotal} </h3>
+        <h3 style={{ color: "#003C55" }}>
+          {" "}
+          Subtotal: ${checked ? subtotal + 12 : subtotal + 0}{" "}
+        </h3>
         <button
           className="btn"
           type="submit"
