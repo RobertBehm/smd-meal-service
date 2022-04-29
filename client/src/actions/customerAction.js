@@ -25,7 +25,8 @@ export const addCustomer = (customer) => async (dispatch) => {
   }
 };
 
-export const deleteCustomer = (customerid) => async (dispatch) => {
+{
+  /*export const deleteCustomer = (customerid) => async (dispatch) => {
   try {
     await axios.post("/api/users/delete-customer", { customerid });
     alert("Customer deleted successfully");
@@ -35,3 +36,5 @@ export const deleteCustomer = (customerid) => async (dispatch) => {
     console.log(error);
   }
 };
+*/
+}

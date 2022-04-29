@@ -1,5 +1,5 @@
 export const cartReducer = (
-  state = { cartItems: [], situation: "ADD_ONE_OR_MORE" },
+  state = { cartItems: [], situation: "ADD_ONE_OR_MORE", shippingAddress: {} },
   action
 ) => {
   switch (action.type) {
@@ -95,6 +95,12 @@ export const cartReducer = (
       return {
         ...state,
         cartItems: [],
+      };
+
+    case "CART_SAVE_SHIPPING_ADDRESS":
+      return {
+        ...state,
+        shippingAddress: action.payload,
       };
 
     default:

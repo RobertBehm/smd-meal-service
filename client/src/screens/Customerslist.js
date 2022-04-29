@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCustomers, deleteCustomer } from "../actions/customerAction";
+import { getAllCustomers } from "../actions/customerAction";
 
 export default function Customerslist() {
   const dispatch = useDispatch();
@@ -36,10 +36,10 @@ export default function Customerslist() {
                 .map((item) => item.price)
                 .reduce(function (previousValue, currentValue) {
                   return previousValue + currentValue;
-                });
+                }, 0);
 
               return (
-                <tr key={customer.id}>
+                <tr>
                   <td> {customer.name} </td>
                   <td> {customer.email} </td>
                   <td> {customer.address} </td>
@@ -51,7 +51,7 @@ export default function Customerslist() {
                   <td>
                     {customer.foods.map((item, i) => {
                       return (
-                        <div key={i}>
+                        <div>
                           <div>{item.name}</div>
                           <div>Size: {item.size}</div>
                           <div>Quantity: {item.quantity}</div>
@@ -63,42 +63,17 @@ export default function Customerslist() {
                       );
                     })}
                   </td>
-                  {/*<td>
-                    {customer.foods.map((item, i) => {
-                      return (
-                        <>
-                          <div className="d-flex justify-content-center align-items-center">
-                            <div> {item.quantity} </div>
-                          </div>
-                          {customer.foods.length - 1 !== i && (
-                            <div style={{ borderTop: "2px solid #bbb" }} />
-                          )}
-                        </>
-                      );
-                    })}
-                  </td> */}
-                  {/*<td>
-                    {customer.foods.map((item, i) => {
-                      return (
-                        <>
-                          <div>{item.price}</div>
-                          {customer.foods.length - 1 !== i && (
-                            <div style={{ borderTop: "2px solid #bbb" }} />
-                          )}
-                        </>
-                      );
-                    })}
-                  </td> 
-                  */}
+
                   <td>${total}</td>
-                  <td>
+                  {/*<td>
                     <i
                       className="fa fa-trash"
                       onClick={() => {
                         dispatch(deleteCustomer(customer._id));
                       }}
                     ></i>
-                  </td>
+                  </td> 
+                    */}
                 </tr>
               );
             })}

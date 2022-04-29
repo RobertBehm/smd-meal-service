@@ -32,8 +32,9 @@ router.post("/addcustomer", async (req, res) => {
   }
 });
 
-router.post("/delete-customer", async (req, res) => {
-  const customerid = req.body.userid;
+{
+  /*router.post("/delete-customer", async (req, res) => {
+  const customerid = req.body.customerid;
 
   try {
     await User.findOneAndDelete({ _id: customerid });
@@ -42,5 +43,7 @@ router.post("/delete-customer", async (req, res) => {
     return res.status(400).json({ message: error });
   }
 });
+*/
+}
 
 module.exports = router;
