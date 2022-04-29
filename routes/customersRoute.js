@@ -22,8 +22,8 @@ router.post("/addcustomer", async (req, res) => {
       city: customer.city,
       state: customer.state,
       phone: customer.phone,
-      delivery: customer.delivery,
       foods: customer.foods,
+      deliveryCharges: customer.deliveryCharges,
     });
     await newcustomer.save();
     res.send("New Customer Added Successfully");
@@ -32,18 +32,17 @@ router.post("/addcustomer", async (req, res) => {
   }
 });
 
-{
-  /*router.post("/delete-customer", async (req, res) => {
+router.post("/deletecustomer", async (req, res) => {
   const customerid = req.body.customerid;
 
   try {
-    await User.findOneAndDelete({ _id: customerid });
-    res.send("Customer Deleted Successfully");
+    await Customer.findOneAndDelete({ _id: customerid });
+    res.send("Customer Deleted successfully");
   } catch (error) {
     return res.status(400).json({ message: error });
   }
 });
-*/
-}
+
+module.exports = router;
 
 module.exports = router;

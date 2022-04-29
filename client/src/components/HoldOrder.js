@@ -46,7 +46,7 @@ function HoldOrder({ handleClose }) {
       city,
       state,
       phone,
-      delivery: checked,
+      deliveryCharges: checked,
       foods: cartItems,
     };
 
