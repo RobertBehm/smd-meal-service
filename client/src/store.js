@@ -25,6 +25,7 @@ import {
   getAllCustomersReducer,
   addCustomerReducer,
 } from "./reducers/customerReducer";
+import { deliveryReducer } from "./reducers/deliveryReducer";
 
 const finalReducer = combineReducers({
   getAllMealsReducer: getAllMealsReducer,
@@ -40,6 +41,7 @@ const finalReducer = combineReducers({
   getAllUsersReducer: getAllUsersReducer,
   getAllCustomersReducer: getAllCustomersReducer,
   addCustomerReducer: addCustomerReducer,
+  deliveryReducer: deliveryReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")
@@ -50,12 +52,19 @@ const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
   : null;
 
+const delivery = localStorage.getItem("delivery")
+  ? JSON.parse(localStorage.getItem("delivery"))
+  : null;
+
 const initialState = {
   cartReducer: {
     cartItems: cartItems,
   },
   loginUserReducer: {
     currentUser: currentUser,
+  },
+  delivery: {
+    deliveryReducer: delivery,
   },
 };
 

@@ -17,6 +17,7 @@ export default function Cartscreen() {
     (x, item) => x + item.quantity * item.prices[0][item.size],
     0
   );
+  const delivery = useSelector((state) => state.deliveryReducer.delivery);
   const dispatch = useDispatch();
 
   return (
@@ -91,7 +92,14 @@ export default function Cartscreen() {
           </div>
 
           <div className="col-md-4 text-right mt-5">
-            <h2 style={{ fontSize: "45px" }}>SubTotal : ${subtotal} </h2>
+            <h2 style={{ fontSize: "45px" }}>
+              SubTotal : $
+              {delivery
+                ? subtotal + 0
+                : delivery === undefined
+                ? subtotal + 0
+                : subtotal + 12}
+            </h2>
             <Checkout subtotal={subtotal} />
           </div>
         </div>

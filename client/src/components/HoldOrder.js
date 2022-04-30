@@ -9,6 +9,7 @@ import {
   SubmittedOrderForm,
   ClickedPaymentOptions,
 } from "../utils/facebook/facebookPixelEvent";
+import { falseDelivery, trueDelivery } from "../actions/deliveryAction";
 
 function HoldOrder({ handleClose }) {
   useEffect(() => {
@@ -18,6 +19,7 @@ function HoldOrder({ handleClose }) {
   const cartstate = useSelector((state) => state.cartReducer);
   const cartItems = cartstate.cartItems;
   var subtotal = cartItems.reduce((x, item) => x + item.price, 0);
+  const delivery = useSelector((state) => state.deliveryReducer.delivery);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -30,6 +32,11 @@ function HoldOrder({ handleClose }) {
 
   const isDelivery = (event) => {
     setChecked(event.target.checked);
+    if (checked) {
+      dispatch(trueDelivery());
+    } else {
+      dispatch(falseDelivery());
+    }
   };
 
   const dispatch = useDispatch();
@@ -171,8 +178,12 @@ function HoldOrder({ handleClose }) {
       </Form.Group>
       <div className="d-flex justify-content-center align-items-center flex-column">
         <h3 style={{ color: "#003C55" }}>
-          {" "}
-          Subtotal: ${checked ? subtotal + 12 : subtotal + 0}{" "}
+          SubTotal : $
+          {delivery
+            ? subtotal + 0
+            : delivery === undefined
+            ? subtotal + 0
+            : subtotal + 12}
         </h3>
         <button
           className="btn"
